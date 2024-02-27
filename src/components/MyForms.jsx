@@ -10,9 +10,6 @@ const MyForms = () => {
     setName(e.target.value);
   };
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  }
 
   console.log(name);
   console.log(email);
@@ -28,7 +25,7 @@ const MyForms = () => {
         <div>
           <label>
             <span>Email</span>
-            <input type="email" name="email" placeholder="Digite o seu email" onChange={handleEmail} />
+            <input type="email" name="email" placeholder="Digite o seu email" onChange={(e) => setEmail(e.target.value)} />
           </label>
         </div>
         <input type="submit" value="Enviar" />
