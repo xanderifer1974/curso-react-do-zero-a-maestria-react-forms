@@ -1,10 +1,12 @@
 import { useState } from "react";
 import "./MyForms.css";
 
-const MyForms = () => {
+const MyForms = ({user}) => {
+  // 6 - Controlled Inputs 
+
   //3 - Gerenciamento de dados
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
+  const [name, setName] = useState(user? user.name: "");
+  const [email, setEmail] = useState(user? user.email:"");
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -28,14 +30,24 @@ const MyForms = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Nome:</label>
-          <input type="text" name="name" placeholder="Digite o seu nome" onChange={handleName} />
+          <input
+           type="text"
+           name="name"
+           placeholder="Digite o seu nome"
+           value={name}
+           onChange={handleName} />
         </div>
         {/* 2 - Label envolvendo input */}
         <div>
             {/* 4 - Simplificação de manipulação de state */}
           <label>
             <span>Email</span>
-            <input type="email" name="email" placeholder="Digite o seu email" onChange={(e) => setEmail(e.target.value)} />
+            <input 
+            type="email"
+            name="email"
+            placeholder="Digite o seu email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)} />
           </label>
         </div>
         <input type="submit" value="Enviar" />

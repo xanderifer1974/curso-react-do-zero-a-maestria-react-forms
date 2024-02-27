@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1>Formulários no React</h1>
-      <MyForms/>
+      <MyForms user={{name:"Alexandre", email:"alexandre@gmail.com"}}/>
     </div>
   );
 }
