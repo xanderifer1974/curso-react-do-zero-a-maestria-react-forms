@@ -13,16 +13,26 @@ const MyForms = () => {
 
   console.log(name);
   console.log(email);
+
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    console.log("Enviando o formulário...")
+    console.log(name,email)
+  }
+
   return (
     <div>
+      {/* 5 - Envio de forms */}  
+
       {/*1 - Criação do Form*/}
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Nome:</label>
           <input type="text" name="name" placeholder="Digite o seu nome" onChange={handleName} />
         </div>
-        {/*Label envolvendo input */}
+        {/* 2 - Label envolvendo input */}
         <div>
+            {/* 4 - Simplificação de manipulação de state */}
           <label>
             <span>Email</span>
             <input type="email" name="email" placeholder="Digite o seu email" onChange={(e) => setEmail(e.target.value)} />
